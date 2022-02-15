@@ -1,12 +1,8 @@
-from tensorflow.keras.layers import Conv2D, Input, Lambda
+from tensorflow.keras.layers import Conv2D, Input 
 from tensorflow.keras.initializers import RandomNormal
 from tensorflow.keras.models import Model
-from utils.common import denorm01, norm01
 import tensorflow as tf
 
-
-def clip_by_value(min_val, max_val):
-    return lambda X : tf.clip_by_value(X, min_val, max_val)
 
 def SRCNN915():
     X_in = Input(shape=(None, None, 3))
