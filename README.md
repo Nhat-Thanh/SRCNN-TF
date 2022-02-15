@@ -33,7 +33,7 @@ I trained 3 models on Google Colab in 1000000 steps and you can get them here:
 
 
 ## Demo 
-After Training, you can test the model with this command, the result is the **sr.png**.
+After Training, you can test models with this command, the result is the **sr.png**.
 ```
 python demo.py --image-path="dataset/test2.png"                \
                --architecture="915"                            \
@@ -41,7 +41,7 @@ python demo.py --image-path="dataset/test2.png"                \
                --scale=2
 ```
 
-I evaluated the model with Set5 and Set14 dataset by PSNR:
+I evaluated models with Set5 and Set14 dataset by PSNR:
 
 <div align="center">
 
