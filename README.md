@@ -1,6 +1,6 @@
 # [TensorFlow] Super-Resolution CNN
 
-Implementation of SRCNN model in **Image Super-Resolution using Deep Convolutional Network** paper with Tensorflow 2x. We used Adam with optimize tuned hyperparameters instead of SGD + Momentum. W implement 3 models in the paper, SRCNN-915, SRCNN-935, SRCNN-955.
+Implementation of SRCNN model in **Image Super-Resolution using Deep Convolutional Network** paper with Tensorflow 2x. I used Adam with optimize tuned hyperparameters instead of SGD + Momentum. I implement 3 models in the paper, SRCNN-915, SRCNN-935, SRCNN-955.
 
 
 ## Train
@@ -17,12 +17,13 @@ python train.py  --steps=1000000                   \
 - **save-best-only**: if it is **0**, model weights will be saved every **save-every** steps.
 
 
-**NOTE**: if you want to retrain a model, you can delete all files in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for next times, so you can train this model on Colab without taking care of GPU limit.
+**NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for next times, so you can train a model on Google Colab without taking care of GPU time limit.
 
-We trained 3 models in 1000000 steps, you can get them here:
+I trained 3 models on Google Colab in 1000000 steps and you can get them here:
 - [SRCNN-915.h5](checkpoint/SRCNN915/SRCNN-915.h5)
 - [SRCNN-935.h5](checkpoint/SRCNN935/SRCNN-935.h5)
 - [SRCNN-955.h5](checkpoint/SRCNN955/SRCNN-955.h5)
+- [Colab file](https://colab.research.google.com/drive/1VtHu3DCMs_qnc4d9_HpNx2g2xX5SriUZ?usp=sharing)
 
 
 ## Demo 
@@ -34,7 +35,7 @@ python demo.py --image-path="dataset/test2.png"                \
                --scale=2
 ```
 
-We evaluated the model with Set5 and Set14 dataset by PSNR:
+I evaluated the model with Set5 and Set14 dataset by PSNR:
 
 <div align="center">
 
