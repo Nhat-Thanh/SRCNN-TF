@@ -1,6 +1,10 @@
 # [TensorFlow] Super-Resolution CNN
 
-Implementation of SRCNN model in **Image Super-Resolution using Deep Convolutional Network** paper with Tensorflow 2x. I used Adam with optimize tuned hyperparameters instead of SGD + Momentum. I implemented 3 models in the paper, SRCNN-915, SRCNN-935, SRCNN-955.
+Implementation of SRCNN model in **Image Super-Resolution using Deep Convolutional Network** paper with Tensorflow 2x. 
+
+I used Adam with optimize tuned hyperparameters instead of SGD + Momentum. 
+
+I implemented 3 models in the paper, SRCNN-915, SRCNN-935, SRCNN-955.
 
 
 ## Contents
