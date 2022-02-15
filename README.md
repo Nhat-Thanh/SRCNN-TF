@@ -23,7 +23,7 @@ python train.py  --steps=1000000                   \
 - **save-best-only**: if it is **0**, model weights will be saved every **save-every** steps.
 
 
-**NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for next times, so you can train a model on Google Colab without taking care of GPU time limit.
+**NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for the next times, so you can train a model on Google Colab without taking care of GPU time limit.
 
 I trained 3 models on Google Colab in 1000000 steps and you can get them here:
 - [SRCNN-915.h5](checkpoint/SRCNN915/SRCNN-915.h5)
