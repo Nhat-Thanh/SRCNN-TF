@@ -5,8 +5,8 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--scale',        type=float, default=2,                                  help='-')
 parser.add_argument('--architecture', type=str,   default="915",                              help='-')
-parser.add_argument("--image-path",   type=str,   default="dataset/test.png",                 help='-')
-parser.add_argument("--ckpt-path",    type=str,   default="checkpoint/SRCNN915/SRCNN-951.h5", help='-')
+parser.add_argument("--image-path",   type=str,   default="dataset/test1.png",                help='-')
+parser.add_argument("--ckpt-path",    type=str,   default="checkpoint/SRCNN915/SRCNN-915.h5", help='-')
 
 FLAGS, unparsed = parser.parse_known_args()
 architecture = FLAGS.architecture
@@ -44,9 +44,8 @@ lr_image = tf.expand_dims(lr_image, axis=0)
 
 model = SRCNN(architecture)
 model.load_weights(ckpt_path)
-sr_image = model.predict(lr_image)
+sr_image = model.predict(lr_image)[0]
 
-sr_image = tf.squeeze(sr_image, axis=0)
 sr_image = denorm01(sr_image)
 sr_image = tf.cast(sr_image, tf.uint8)
 sr_image = ycbcr2rgb(sr_image)
