@@ -44,8 +44,8 @@ class dataset:
                     subim_label = hr_image[x + padding : x + padding + hr_crop_size,
                                            y + padding : y + padding + hr_crop_size]
                 
-                data.append(subim_data.numpy())
-                labels.append(subim_label.numpy())
+                    data.append(subim_data.numpy())
+                    labels.append(subim_label.numpy())
 
         data = np.array(data)
         labels = np.array(labels)
