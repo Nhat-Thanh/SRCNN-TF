@@ -46,15 +46,15 @@ python demo.py --image-path="dataset/test2.png"                \
                --scale=2
 ```
 
-I evaluated models with Set5 and Set14 dataset by PSNR:
+I evaluated models with Set5, Set14, BSD100 and Urban100 dataset by PSNR:
 
 <div align="center">
 
-|   Model   | Set5 x2 | Set5 x3 | Set5 x4 | Set14 x2 | Set14 x3 | Set14 x4 |
-|:---------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|
-| SRCNN-915 | 35.8345 |	34.3566 | 31.9265 |	32.7506  | 31.3271  | 29.5111  |
-| SRCNN-935	| 36.3159 |	34.4074 | 31.9210 |	33.0301  | 31.3659  | 29.5404  |
-| SRCNN-955	| 36.0525 | 34.3292 | 32.9078 |	32.9502  | 31.2873  | 29.5225  |
+|   Model   | Set5 x2 | Set5 x3 | Set5 x4 | Set14 x2 | Set14 x3 | Set14 x4 | BSD100 x2 | BSD100 x3 | BSD100 x4 | Urban100 x2 | Urban100 x4 |
+|:---------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:---------:|:---------:|:---------:|:-----------:|:-----------:|
+| SRCNN-915 | 35.8345 |	34.3566 | 31.9265 |	32.7506  | 31.3271  | 29.5111  |  32.8063  |  31.1103  |  29.6623  |   29.5327   |   26.9223   |
+| SRCNN-935	| 36.3159 |	34.4074 | 31.9210 |	33.0301  | 31.3659  | 29.5404  |  32.9435  |  31.1034  |  29.6133  |   29.7602   |   26.8977   |
+| SRCNN-955	| 36.0525 | 34.3292 | 32.9078 |	32.9502  | 31.2873  | 29.5225  |  32.9076  |  31.0606  |  29.6126  |   29.6711   |   26.8787   |
 
 </div>
 
@@ -65,7 +65,10 @@ I evaluated models with Set5 and Set14 dataset by PSNR:
 Source: game ZingSpeed Mobile
 
 ## References
-- Image Super-Resolution Using Deep Convolutional Networks: https://arxiv.org/pdf/1501.00092.pdf
+- Image Super-Resolution Using Deep Convolutional Networks: https://arxiv.org/abs/1501.00092
 - SRCNN Matlab code: http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html
-- T91: http://vllab.ucmerced.edu/wlai24/LapSRN/
-- Set5, Set14: https://github.com/jbhuang0604/SelfExSR#comparison-with-the-state-of-the-art
+- T91: http://vllab.ucmerced.edu/wlai24/LapSRN/results/SR_training_datasets.zip
+- Set5: https://filebox.ece.vt.edu/~jbhuang/project/selfexsr/Set5_SR.zip
+- Set14: https://filebox.ece.vt.edu/~jbhuang/project/selfexsr/Set14_SR.zip
+- BSD100: https://filebox.ece.vt.edu/~jbhuang/project/selfexsr/BSD100_SR.zip
+- Urban100: https://filebox.ece.vt.edu/~jbhuang/project/selfexsr/Urban100_SR.zip
