@@ -11,27 +11,31 @@ I implemented 3 models in the paper, SRCNN-915, SRCNN-935, SRCNN-955.
 
 ## Contents
 - [Train](#train)
+- [Test](#test)
 - [Demo](#demo)
+- [Evaluate](#evaluate)
 - [References](#references)
 
 
 ## Train
 You run this command to begin the training:
 ```
-python train.py  --steps=1000000                   \
-                 --architecture="915"              \
-                 --batch_size=128                  \
-                 --save-best-only=1                \
-                 --save-every=1000                 \
-                 --ckpt-dir="checkpoint/SRCNN915"  
+python train.py  --steps=200000             \
+                 --architecture="915"       \
+                 --batch_size=128           \
+                 --save-best-only=0         \
+                 --save-every=1000          \
+                 --save-log=0               \
+                 --ckpt-dir="checkpoint/x2" 
 ```
-- **architecture** accepts 3 values: 915, 935, 955. They are orders of kernel size.
-- **save-best-only**: if it is **0**, model weights will be saved every **save-every** steps.
+- **--save-best-only**: if it's equal to **0**, model weights will be saved every **save-every** steps.
+- **--save-log**: if it's equal to **1**, **train loss, train metric, validation loss, validation metric** will be saved every **save-every** steps.
 
 
 **NOTE**: if you want to re-train a new model, you should delete all files in sub-directories in **checkpoint** directory. Your checkpoint will be saved when above command finishs and can be used for the next times, so you can train a model on Google Colab without taking care of GPU time limit.
 
-I trained 3 models on Google Colab in 1000000 steps: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nhat-Thanh/SRCNN-TF/blob/main/SRCNN-TF.ipynb)
+I trained 3 models on Google Colab in 200000 steps:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Nhat-Thanh/SRCNN-TF/blob/main/SRCNN-TF.ipynb)
 
 You can get the models here:
 - [SRCNN-915.h5](checkpoint/SRCNN915/SRCNN-915.h5)
@@ -39,14 +43,25 @@ You can get the models here:
 - [SRCNN-955.h5](checkpoint/SRCNN955/SRCNN-955.h5)
 
 
+## Test
+I use **Set5** as the test set. After Training, you can test models with scale factors **x2, x3, x4**, the result is calculated by compute average PSNR of all images.
+```
+python test.py --scale=2 --architecture=915 --ckpt-path="default"
+```
+- **--ckpt-path="default"** means you are using default model path, aka **checkpoint/SRCNN{architecture}/SRCNN-{architecture}.h5**. If you want to use your trained model, you can pass yours to **--ckpt-path**.
+
 ## Demo 
 After Training, you can test models with this command, the result is the **sr.png**.
 ```
-python demo.py --image-path="dataset/test2.png"                \
-               --architecture="915"                            \
-               --ckpt-path="checkpoint/SRCNN915/SRCNN-915.h5"  \
+python demo.py --image-path="dataset/test1.png" \
+               --architecture="915"             \
+               --ckpt-path="default"            \
                --scale=2
 ```
+- **--ckpt-path** is the same as in [Test](#test)
+
+## Evaluate
+
 
 I evaluated models with Set5, Set14, BSD100 and Urban100 dataset by PSNR:
 
